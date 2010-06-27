@@ -1,10 +1,10 @@
 % Mitgliedsantrag StuStaNet e. V.
 % Tex initially created 2010 by Maximilian Engelhardt <maximilian.engelhardt@stusta.mhn.de>
 
-%\documentclass[a4paper,12pt,draft]{scrartcl}
-\documentclass[a4paper,12pt]{scrartcl}
+\documentclass[a4paper,10pt]{scrartcl}
+%\documentclass[a4paper,11pt]{scrartcl}
 
-\usepackage[utf8]{inputenc}
+\usepackage[utf8x]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{ngerman}
 \usepackage{eurosym}
@@ -14,26 +14,79 @@
 \usepackage{pifont}
 \usepackage{fancyhdr}
 \usepackage{lastpage}
+\usepackage{pigpen}
+\usepackage{ifthen}
+\usepackage{calc}
 \usepackage[pdftex]{hyperref}
 \usepackage[top=2.5cm,bottom=2.5cm,left=1.3cm,right=1.3cm]{geometry}
-
 
 \hypersetup{
     pdftitle    = {Antrag auf Mitgliedschaft im StuStaNet e.V.},
     pdfsubject  = {Mitgliedsantrag}
 }
 
+\newboolean{onlineform}
+\setboolean{onlineform}{false}
+
+\newboolean{frakfamily}
+\setboolean{frakfamily}{false}
+
+
+
+
+% uncomment to enable PDF forms
+%\setboolean{onlineform}{true}
+
+% uncomment to enagle frank font
+% you can also usp 11pt fonts
+%\setboolean{frakfamily}{true}
+
+
+
+
+\ifthenelse{\boolean{onlineform}}{
+	\newcommand{\myRadioBox}{
+		\raisebox{-0.2em}{\ChoiceMenu[name=haus, radio, radiosymbol=\ding{53}, bordercolor=black, borderwidth=2, width=1.2em, height=1.2em]{}{ }}
+		\rule{0pt}{1.5em}
+	}
+}{
+	\newcommand{\myRadioBox}{
+		\setlength{\fboxrule}{2pt}
+		\setlength{\fboxsep}{0.5em}
+		\raisebox{0.3em}{\fbox{}}
+		\rule{0pt}{1.5em}
+	}
+}
+
+\ifthenelse{\boolean{frakfamily}}{
+	\usepackage{yfonts}
+	\usepackage{sectsty}
+
+	\allsectionsfont{\frakfamily}
+}{}
+
+
+\DeclareFontEncoding{MDB}{}{}
+\DeclareFontFamily{MDB}{mdput}{}
+\DeclareFontShape{MDB}{mdput}{m}{n}{<-> mdputrmb}{}
+\newcommand{\rightangle}{\usefont{MDB}{mdput}{m}{n}\char"4}
+\setlength{\parindent}{0pt}
+
+
+
 
 \pagestyle{fancy}
 
 \fancyhf{} % clear all header and footer fields
-\rhead{\bfseries \thepage /\pageref*{LastPage}}
+\rhead{\ifthenelse{\boolean{frakfamily}}{\frakfamily}{}\bfseries \thepage /\pageref*{LastPage}}
+\lhead{\ifthenelse{\boolean{frakfamily}}{\frakfamily}{}StuStaNet e.V. - Antrag auf Mitgliedschaft}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
 
 \fancypagestyle{plain}{
 \fancyhf{}
-\rfoot{\bfseries \thepage /\pageref*{LastPage}}
+\rfoot{\ifthenelse{\boolean{frakfamily}}{\frakfamily}{}\bfseries \thepage /\pageref*{LastPage}}
+\lfoot{\ifthenelse{\boolean{frakfamily}}{\frakfamily}{}StuStaNet e.V. - Antrag auf Mitgliedschaft}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}}
 
@@ -42,13 +95,18 @@
 \date{}
 
 \begin{document}
+\ifthenelse{\boolean{frakfamily}}{
+	\frakfamily
+	\fraklines
+}{}
 
 \maketitle
 \vspace{-60pt}
 
 \begin{figure}[t!]
    \centering
-   \mbox{\includegraphics[width=0.75\textwidth,keepaspectratio]{stunetp}\Huge \sffamily \textbf{e.V.}}
+   \vspace{-40pt}
+   \mbox{\includegraphics[width=0.75\textwidth,keepaspectratio]{stunetp}\ifthenelse{\boolean{frakfamily}}{\frakfamily}{}\Huge \sffamily \textbf{e.V.}}
    \vspace{-40pt}
 \end{figure}
 
@@ -56,68 +114,100 @@
 \section*{An den Vorstand des StuStaNet e.V.}
 
 \subsection*{Ich beantrage die Aufnahme als Mitglied in den Verein StuStaNet e.V.}
-Der Verein betreibt am LAN des Wohnheims Studentenstadt Freimann, München, Netzdienste, die ich als Mitglied prinzipiell gleichberechtigt mit anderen Teilnehmern nutzen kann. Ich verpflichte mich, das Netz und die Netzdienste verantwortungsvoll und nicht über Gebühr zu nutzen und unter Rücksichtnahme auf die Interessen aller Teilnehmer sowie unter Berücksichtigung aller geltenden Nutzungsbedingungen nicht zu missbrauchen. Ich nehme zur Kenntnis, dass der Verein keinerlei Zusagen über die Funktionsfähigkeit des Netzes und der Netzdienste, den Umfang der gebotenen Funktionalität oder deren Dauerhaftigkeit macht. Vielmehr ergibt sich aus dem Vereinszweck, dass das Netz und die angebotenen Netzdienste laufend Veränderungen unterliegen.
+\ifthenelse{\boolean{frakfamily}}{\yinipar{D}}{D}er Verein betreibt am LAN des Wohnheims Studentenstadt Freimann, München, Netzdienste, die ich als Mitglied prinzipiell gleichberechtigt mit anderen Teilnehmern nutzen kann. Ich verpflichte mich, das Netz und die Netzdienste verantwortungsvoll und nicht über Gebühr zu nutzen und unter Rücksichtnahme auf die Interessen aller Teilnehmer sowie unter Berücksichtigung aller geltenden Nutzungsbedingungen nicht zu missbrauchen. Ich nehme zur Kenntnis, dass der Verein keinerlei Zusagen über die Funktionsfähigkeit des Netzes und der Netzdienste, den Umfang der gebotenen Funktionalität oder deren Dauerhaftigkeit macht. Vielmehr ergibt sich aus dem Vereinszweck, dass das Netz und die angebotenen Netzdienste laufend Veränderungen unterliegen.
 
 \subsection*{Anerkenntnis der Nutzungsbedingungen}
-Ich erkläre ausdrücklich, dass ich insbesondere den Zweck des Netzes gemäß dem Teil ,,Allgemeines`` der Benutzerordnung für das Datennetzwerk der Wohnanlagen des Studentenwerks München (\url{http://www.studentenwerk.mhn.de/swh/benutzerordnung/index-de.html}) 
-und auch die jeweils gültigen Nutzungsbedingungen gemäß §9 der Benutzerordnung anerkenne. Ich nehme dabei auch zur Kenntnis, dass der Verein die jeweiligen Benutzungsrichtlinien für Informationsverarbeitungssysteme des Leibniz-Rechenzentrums der Bayerischen Akademie der Wissenschaft (\url{http://www.lrz-muenchen.de/wir/regelwerk/benutzungsrichtlinien/}) 
-und etwaige weitere Nutzungsbedingungen seitens des Leibniz-Rechenzentrums der Bayerischen Akademie der Wissenschaften zu beachten hat.
+\ifthenelse{\boolean{frakfamily}}{\yinipar{I}}{I}ch erkläre ausdrücklich, dass ich insbesondere den Zweck des Netzes gemäß dem Teil ,,Allgemeines`` der Benutzerordnung für das Datennetzwerk der Wohnanlagen des Studentenwerks München (\url{http://www.studentenwerk-muenchen.de/swh/benutzerordnung/benutzerordnung.pdf}) und auch die jeweils gültigen Nutzungsbedingungen gemäß §9 der Benutzerordnung anerkenne. Ich nehme dabei auch zur Kenntnis, dass der Verein die jeweiligen Benutzungsrichtlinien für Informationsverarbeitungssysteme des Leibniz-Rechenzentrums der Bayerischen Akademie der Wissenschaft (\url{http://www.lrz.de/wir/regelwerk/benutzungsrichtlinien/}) und etwaige weitere Nutzungsbedingungen seitens des Leibniz-Rechenzentrums der Bayerischen Akademie der Wissenschaften zu beachten hat.
 
 \subsection*{Haftungseinschränkungen}
-Die Haftung anderer Vereinsmitglieder beschränke ich bei Tätigkeiten, welche sich auf meine Computerhardware und das Computernetz beziehen, auf Vorsatz und grobe Fahrlässigkeit. Ebenso beschränke ich die Haftung des StuStaNet e.V. generell auf Vorsatz und grobe Fahrlässigkeit. Wenn ich Leistungen für den Verein erbringe, hafte ich selbst nicht für leichte Fahrlässigkeit. Ebenso ist mir bekannt, dass der Betrieb von Geräten am Netz sowie die Nutzung der vom Verein angebotenen Netzdienste grundsätzlich auf eigene Gefahr erfolgt. Weiter ist auch mit Störungen bei den vom Verein betriebenen Diensten zu rechnen, da diese auch für Experimente aller Vereinsmitglieder gedacht sind. Der Verein haftet insbesondere nicht bei Verlust von auf vereinseigenen Rechnern hinterlegten Daten.
+\ifthenelse{\boolean{frakfamily}}{\yinipar{D}}{D}ie Haftung anderer Vereinsmitglieder beschränke ich bei Tätigkeiten, welche sich auf meine Computerhardware und das Computernetz beziehen, auf Vorsatz und grobe Fahrlässigkeit. Ebenso beschränke ich die Haftung des StuStaNet e.V. generell auf Vorsatz und grobe Fahrlässigkeit. Wenn ich Leistungen für den Verein erbringe, hafte ich selbst nicht für leichte Fahrlässigkeit. Ebenso ist mir bekannt, dass der Betrieb von Geräten am Netz sowie die Nutzung der vom Verein angebotenen Netzdienste grundsätzlich auf eigene Gefahr erfolgt. Weiter ist auch mit Störungen bei den vom Verein betriebenen Diensten zu rechnen, da diese auch für Experimente aller Vereinsmitglieder gedacht sind. Der Verein haftet insbesondere nicht bei Verlust von auf vereinseigenen Rechnern hinterlegten Daten.
 
 \subsection*{Datensicherheit, sicherer Netzbetrieb und Schutz von Minderjährigen}
-Mir ist bekannt, dass es zu Einbruchsversuchen in das Netz und aller daran angeschlossenen Rechner kommen kann. Dabei kann es auch zu Datenspionage und Datenverlusten auf meiner angeschlossenen Hardware kommen. Ich bin selbst für die Datensicherheit auf meinem Rechner verantwortlich. Auch ist mir bekannt, dass es durch Schädlingsprogramme zu Störungen im Netzbetrieb sowie Datenspionage und Datenverlusten auf meiner angeschlossener Hardware kommen kann. Ich bin selbst für den Schutz meines Rechners verantwortlich und bin darüber hinaus verpf1ichtel sicherzustellen, dass meine ans Netz angeschlossenen Geräte nicht die Betriebssicherheit des Netzes gefährden oder Schädlingsprogramme verbreiten. Außerdem verhindere ich wirksam, dass Minderjährige von meiner Wohnung aus das Computernetz und die Netzdienste des Vereins benutzen können. Mir ist bekannt, dass sich im lokalen Netz sowie auf vereinseigenen Rechnern (Intranet) als auch im globalen Netz (Internet) jugendgefährdende Inhalte befinden können.
+\ifthenelse{\boolean{frakfamily}}{\yinipar{M}}{M}ir ist bekannt, dass es zu Einbruchsversuchen in das Netz und aller daran angeschlossenen Rechner kommen kann. Dabei kann es auch zu Datenspionage und Datenverlusten auf meiner angeschlossenen Hardware kommen. Ich bin selbst für die Datensicherheit auf meinem Rechner verantwortlich. Auch ist mir bekannt, dass es durch Schädlingsprogramme zu Störungen im Netzbetrieb sowie Datenspionage und Datenverlusten auf meiner angeschlossener Hardware kommen kann. Ich bin selbst für den Schutz meines Rechners verantwortlich und bin darüber hinaus verpf1ichtel sicherzustellen, dass meine ans Netz angeschlossenen Geräte nicht die Betriebssicherheit des Netzes gefährden oder Schädlingsprogramme verbreiten. Außerdem verhindere ich wirksam, dass Minderjährige von meiner Wohnung aus das Computernetz und die Netzdienste des Vereins benutzen können. Mir ist bekannt, dass sich im lokalen Netz sowie auf vereinseigenen Rechnern (Intranet) als auch im globalen Netz (Internet) jugendgefährdende Inhalte befinden können.
 
 \subsection*{Mitgliedschaft}
-Die Vereinsmitgliedschaft beginnt gemäß Art. 6 der Satzung durch Ausstellung eines Mitgliedsausweises. Die Bearbeitung des Antrags sowie die \textbf{Freischaltung zu allen Vereinsdiensten dauert in der Regel zwei bis drei Wochen}. Meinen Mitgliedsausweis mit meiner Mitgliedsnummer und den Passwörtern sowie sonstige Passwörter zu Netzdiensten des Vereins werde ich vertraulich behandeln und keinesfalls an Dritte weitergeben. Mein Zugang zu den Vereinsdiensten ist ein persönlicher Zugang, für dessen Nutzung ich die Verantwortung übernehme. Ich erkenne die Satzung des StuStaNet e.V. in der gültigen Fassung und die sich daraus ergebenden Rechte und Pflichten an.
+\ifthenelse{\boolean{frakfamily}}{\yinipar{D}}{D}ie Vereinsmitgliedschaft beginnt gemäß Art. 6 der Satzung durch Ausstellung eines Mitgliedsausweises. Die Bearbeitung des Antrags sowie die \textbf{Freischaltung zu allen Vereinsdiensten dauert in der Regel zwei bis drei Wochen}. Meinen Mitgliedsausweis mit meiner Mitgliedsnummer und den Passwörtern sowie sonstige Passwörter zu Netzdiensten des Vereins werde ich vertraulich behandeln und keinesfalls an Dritte weitergeben. Mein Zugang zu den Vereinsdiensten ist ein persönlicher Zugang, für dessen Nutzung ich die Verantwortung übernehme. Ich erkenne die Satzung des StuStaNet e.V. in der gültigen Fassung und die sich daraus ergebenden Rechte und Pflichten an.
+
+\medskip
 
 \hfill\today
 
+%\vfill
+\newpage
+
+\ifthenelse{\boolean{onlineform}}{\begin{Form}}{}
+
+\LARGE Bitte in \textbf{Druckbuchstaben} ausfüllen! \\
+\large Unvollständige oder unleserliche Anträge können leider nicht bearbeitet werden!
+
 \vfill
 
-\noindent Bitte in Druckbuchstaben ausfüllen! Unvollständige oder unleserliche Anträge können leider nicht bearbeitet werden!
+{\LARGE
+\begin{tabbing}
+	\hspace{7em}\=\kill
+	\bfseries Name: \>\ifthenelse{\boolean{onlineform}}
+	{\underline{\TextField[name=name, bordercolor=white, width=.7\linewidth, borderwidth=0]{}}}
+	{\rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle} \\
+	\\
+	\bfseries Vorname: \>\ifthenelse{\boolean{onlineform}}
+	{\underline{\TextField[name=vorname, bordercolor=white, width=.7\linewidth, borderwidth=0]{}}}
+	{\rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle} \\
+	\\
+	\bfseries Zimmer: \>\ifthenelse{\boolean{onlineform}}
+	{\underline {\TextField[name=zimmer, bordercolor=white, width=2.4em, maxlen=4, borderwidth=0]{}}}
+	{\rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace} \\
+\end{tabbing}
+}
 
-\setlength{\fboxrule}{0pt}
-
-\begin{Form}
-\begin{center}
-  \begin{tabular}{!{\vrule width2pt}>{\footnotesize}l|>{\footnotesize}r|r!{\vrule width2pt}>{\footnotesize}l|r!{\vrule width2pt}}
-    \noalign{\hrule height2pt}
-    \multicolumn{3}{!{\vrule width2pt}l!{\vrule width2pt}}{\large\textbf{Name:} \fbox{\underline{\TextField[name=name, bordercolor=white, width=.34\linewidth, borderwidth=0]{\ding{231}}}}} & \multicolumn{2}{l!{\vrule width2pt}}{\large\textbf{Vorname:} \fbox{\underline{\TextField[name=vorname, bordercolor=white, width=.3\linewidth, borderwidth=0]{\ding{231}}}}} \\
-    \noalign{\hrule height2pt}
-    \multicolumn{3}{!{\vrule width2pt}l!{\vrule width2pt}}{\large\textbf{Haus:} \hspace*{\fill} \footnotesize{(bitte nachfolgend unten ankreuzen)} \hspace*{\fill}} & \multicolumn{2}{l!{\vrule width2pt}}{\large\textbf{Zimmer:} \hspace*{\fill} \fbox{\underline{\TextField[name=zimmer, bordercolor=white, width=2.4em, maxlen=4, borderwidth=0]{\ding{231}}}}\hspace*{\fill}} \\
-    \noalign{\hrule height2pt}
-    Christoph-Probst-Str. 6 & rot & \fbox{\ChoiceMenu[name=haus, radio, radiosymbol=\ding{53}, bordercolor=black, borderwidth=2, width=1.2em, height=1.2em]{$\!\!$}{13 }} & Hans-Leipelt-Straße 7 & \fbox{\ChoiceMenu[name=haus, radio, radiosymbol=\ding{53}, bordercolor=black, borderwidth=2, width=1.2em, height=1.2em]{$\!\!$}{10 }}\\
-    \hline
-    Christoph-Probst-Str. 8 & orange & \fbox{\ChoiceMenu[name=haus, radio, radiosymbol=\ding{53}, bordercolor=black, borderwidth=2, width=1.2em, height=1.2em]{$\!\!$}{12 }}& Hans-Leipelt-Straße 6, 8, 10 \vline~\textbf{WG:} \fbox{\underline{\TextField[name=wg, bordercolor=white, width=2em, maxlen=2, borderwidth=0]{\ding{231}}}} & \fbox{\ChoiceMenu[name=haus, radio, radiosymbol=\ding{53}, bordercolor=black, borderwidth=2, width=1.2em, height=1.2em]{$\!\!$}{14 }}\\
-    \hline
-    Christoph-Probst-Str. 12 & blau & \fbox{\ChoiceMenu[name=haus, radio, radiosymbol=\ding{53}, bordercolor=black, borderwidth=2, width=1.2em, height=1.2em]{$\!\!$}{11 }}& Willi-Graf-Str. 3, 5, 7 & \fbox{\ChoiceMenu[name=haus, radio, radiosymbol=\ding{53}, bordercolor=black, borderwidth=2, width=1.2em, height=1.2em]{$\!\!$}{6 }} \\
-    \hline
-    Christoph-Probst-Str. 16 (HSH) & grün & \fbox{\ChoiceMenu[name=haus, radio, radiosymbol=\ding{53}, bordercolor=black, borderwidth=2, width=1.2em, height=1.2em]{$\!\!$}{9 }}& Willi-Graf-Str. 9, 11, 13 & \fbox{\ChoiceMenu[name=haus, radio, radiosymbol=\ding{53}, bordercolor=black, borderwidth=2, width=1.2em, height=1.2em]{$\!\!$}{5 }} \\
-    \hline
-    \multicolumn{2}{!{\vrule width2pt}>{\footnotesize}l|}{Grasmeierstr. 7, 9, 11 (ELH), 13 (AKH)} & \fbox{\ChoiceMenu[name=haus, radio, radiosymbol=\ding{53}, bordercolor=black, borderwidth=2, width=1.2em, height=1.2em]{$\!\!$}{3 }}& Willi-Graf-Straße 17 (EWH) & \fbox{\ChoiceMenu[name=haus, radio, radiosymbol=\ding{53}, bordercolor=black, borderwidth=2, width=1.2em, height=1.2em]{$\!\!$}{4 }} \\
-    \hline
-    \multicolumn{2}{!{\vrule width2pt}>{\footnotesize}l|}{Grasmeierstr. 15, 17, 19, 21} & \fbox{\ChoiceMenu[name=haus, radio, radiosymbol=\ding{53}, bordercolor=black, borderwidth=2, width=1.2em, height=1.2em]{$\!\!$}{2 }}& Willi-Graf-Str. 19 & \fbox{\ChoiceMenu[name=haus, radio, radiosymbol=\ding{53}, bordercolor=black, borderwidth=2, width=1.2em, height=1.2em]{$\!\!$}{8 }}\\
-    \hline
-    \multicolumn{2}{!{\vrule width2pt}>{\footnotesize}l|}{Grasmeierstr. 25 (MKH)} & \fbox{\ChoiceMenu[name=haus, radio, radiosymbol=\ding{53}, bordercolor=black, borderwidth=2, width=1.2em, height=1.2em]{$\!\!$}{1 }}& Willi-Graf-Str. 21, 23, 25 & \fbox{\ChoiceMenu[name=haus, radio, radiosymbol=\ding{53}, bordercolor=black, borderwidth=2, width=1.2em, height=1.2em]{$\!\!$}{7 }}\\
-    \hline
-    \multicolumn{2}{!{\vrule width2pt}>{\footnotesize}l|}{Grasmeierstr. 27 (Wohnwürfel / O2 village)} & \fbox{\ChoiceMenu[name=haus, radio, radiosymbol=\ding{53}, bordercolor=black, borderwidth=2, width=1.2em, height=1.2em]{$\!\!$}{16 }}& & \\
-    \noalign{\hrule height2pt}
-  \end{tabular}
-\end{center}
 \vfill
-\noindent \textbf{Datum \& Unterschrift:} \hrulefill
-\end{Form}
+
+\LARGE \textbf{Haus:} \hspace*{10pt} \large{(bitte nachfolgend unten ankreuzen)} \\
+
+\vfill
+
+
+{\large
+\begin{tabbing}
+	\hspace*{3.5em}\=\hspace*{2.5em}\=\kill
+	\myRadioBox \> 1 \> Grasmeierstr. 25 (MKH) \\
+	\myRadioBox \> 2 \> Grasmeierstr. 15, 17, 19, 21 \\
+	\myRadioBox \> 3 \> Grasmeierstr. 7, 9, 11, 13 \\
+	\myRadioBox \> 4 \> Willi-Graf-Straße 17 (EWH) \\
+	\myRadioBox \> 5 \> Willi-Graf-Str. 9, 11, 13 \\
+	\myRadioBox \> 6 \> Willi-Graf-Str. 3, 5, 7 \\
+	\myRadioBox \> 7 \> Willi-Graf-Str. 21, 23, 25 \\
+	\myRadioBox \> 8 \> Willi-Graf-Str. 19 \\
+	\myRadioBox \> 9 \> Christoph-Probst-Str. 16 (HSH) (grün) \\
+	\myRadioBox \> 10 \> Hans-Leipelt-Straße 7 \\
+	\myRadioBox \> 11 \> Christoph-Probst-Str. 12 (blau) \\
+	\myRadioBox \> 12 \> Christoph-Probst-Str. 8 (orange) \\
+	\myRadioBox \> 13 \> Christoph-Probst-Str. 6 (rot) \\
+	\myRadioBox \> 14 \> Hans-Leipelt-Straße 6, 8, 10 \\
+	\> \>\ifthenelse{\boolean{onlineform}}
+		{\textbf{WG:} \mbox{\underline{\TextField[name=wg, bordercolor=white, width=2em, maxlen=2, borderwidth=0]{ }}}}
+		{\textbf{WG:} \Large{\raisebox{-0.15em}{\rightangle \enspace \rightangle \enspace}}} \\
+	\myRadioBox \> 16 \> Grasmeierstr. 27 (Wohnwürfel / O2 village) \\
+\end{tabbing}
+}
+
+\ifthenelse{\boolean{onlineform}}{\end{Form}}{}
+
+\vfill
+\vfill
+
+\hrulefill \\
+(Datum) \hfill (Unterschrift) \hspace{\stretch{4}}
 
 \vfill
 
 \enlargethispage{40pt}
-\noindent \hrulefill \\ \emph{Bitte hier nichts ausfüllen!}
+\hrulefill 
+
+\emph{Bitte hier nichts ausfüllen!} \hfill Version: \today
 
 \medskip
 
-\noindent \small{Aufnahmegebühr bezahlt: \ding{111} \hfill Eintrag in Mitgliederliste: \ding{111} \hfill Mitgliedsausweis gedruckt: \ding{111}}
+Aufnahmegebühr bezahlt: \ding{111} \hfill Eintrag in Mitgliederliste: \ding{111} \hfill Mitgliedsausweis gedruckt: \ding{111}
 
 
 \end{document}
