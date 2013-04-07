@@ -159,12 +159,15 @@
 	{\rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace} \\
 \end{tabbing}
 }
+\vspace{-10pt}
 
 \vfill
 
 \LARGE \textbf{Haus:} \hspace*{10pt} \large{(bitte nachfolgend unten ankreuzen)} \\
+\vspace{-10pt}
 
 \vfill
+
 
 
 {\large
@@ -191,6 +194,18 @@
 \end{tabbing}
 }
 
+{\Large
+\ifthenelse{\boolean{onlineform}}
+	{\textbf{E-Mail:} \mbox{\underline{\TextField[name=email, bordercolor=white, width=.8\linewidth, borderwidth=0]{ }}}}
+	{\textbf{E-Mail:} {\raisebox{-0.15em}{\rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle}}} \\
+}
+{ \small
+Die Angabe der E-Mail Adresse erfolgt auf freiwilliger Basis. Sie dient dazu
+bevorstehende Aktionen anzukündigen, welche die Mitgliedschaft betreffen.
+Wird keine e-Mail Adresse angegeben, so werden die Ankündigungen an die
+StuSta-Mail-Adresse verschickt.
+}
+
 \ifthenelse{\boolean{onlineform}}{\end{Form}}{}
 
 \vfill
@@ -204,14 +219,8 @@ Ich bestätige, dass obige Angaben korrekt sind sowie, dass ich die erste Seite 
 \vfill
 
 \enlargethispage{40pt}
-\hrulefill 
 
-\emph{Bitte hier nichts ausfüllen!} \hfill Version: \today
-
-\medskip
-
-Aufnahmegebühr bezahlt: \ding{111} \hfill Eintrag in Mitgliederliste: \ding{111} \hfill Mitgliedsausweis gedruckt: \ding{111}
-
+\hfill Version: \today
 
 \end{document}
 
