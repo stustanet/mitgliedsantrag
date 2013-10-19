@@ -1,0 +1,223 @@
+% Mitgliedsantrag StuStaNet e. V.
+% Tex initially created 2010 by Maximilian Engelhardt
+% <maximilian.engelhardt@stusta.mhn.de>
+
+
+\documentclass[a4paper,10pt]{scrartcl}
+%\documentclass[a4paper,11pt]{scrartcl}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{ngerman}
+\usepackage{eurosym}
+\usepackage[pdftex,final]{graphicx}
+\usepackage{xcolor}
+\usepackage{array}
+\usepackage{pifont}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{pigpen}
+\usepackage{ifthen}
+\usepackage{calc}
+\usepackage{multicol}
+\usepackage[pdftex]{hyperref}
+\usepackage{csquotes}
+\usepackage[top=2.5cm,bottom=2.5cm,left=1.3cm,right=1.3cm]{geometry}
+
+\hypersetup{
+    pdftitle    = {Membership application for the StuStaNet e.V.},
+    pdfsubject  = {Membership application}
+}
+
+\newboolean{onlineform}
+\setboolean{onlineform}{false}
+
+\newboolean{frakfamily}
+\setboolean{frakfamily}{false}
+
+% uncomment to enagle frank font
+% you can also use 11pt fonts
+%\setboolean{frakfamily}{true}
+
+\newcommand{\myRadioBox}{
+	\setlength{\fboxrule}{2pt}
+	\setlength{\fboxsep}{0.5em}
+	\raisebox{0.3em}{\fbox{}}
+	\rule{0pt}{1.5em}
+}
+\newcommand{\myRadioBoxMail}{
+	\setlength{\fboxrule}{2pt}
+	\setlength{\fboxsep}{0.5em}
+	\raisebox{0.3em}{\fbox{}}
+	\rule{0pt}{1.5em}
+}
+
+\ifthenelse{\boolean{frakfamily}}{
+	\usepackage{yfonts}
+	\usepackage{sectsty}
+
+	\allsectionsfont{\frakfamily}
+}{}
+
+
+\DeclareFontEncoding{MDB}{}{}
+\DeclareFontFamily{MDB}{mdput}{}
+\DeclareFontShape{MDB}{mdput}{m}{n}{<-> mdputrmb}{}
+\newcommand{\rightangle}{\usefont{MDB}{mdput}{m}{n}\char"4}
+\setlength{\parindent}{0pt}
+
+\pagestyle{fancy}
+
+\fancyhf{} % clear all header and footer fields
+\rhead{\ifthenelse{\boolean{frakfamily}}{\frakfamily}{}\bfseries \thepage /\pageref*{LastPage}}
+\lhead{\ifthenelse{\boolean{frakfamily}}{\frakfamily}{}StuStaNet e.V. - Translation help for membership application}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\fancypagestyle{plain}{
+\fancyhf{}
+\rfoot{\ifthenelse{\boolean{frakfamily}}{\frakfamily}{}\bfseries \thepage /\pageref*{LastPage}}
+\lfoot{\ifthenelse{\boolean{frakfamily}}{\frakfamily}{}StuStaNet e.V. - Translation help for membership application}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}}
+
+\title{Translation help for the membership application}
+\date{}
+
+\begin{document}
+\ifthenelse{\boolean{frakfamily}}{
+	\frakfamily
+	\fraklines
+}{}
+
+\maketitle
+\vspace{-60pt}
+
+
+\begin{figure}[t!]
+   \centering
+   \vspace{-40pt}
+   \mbox{\includegraphics[width=0.50\textwidth,keepaspectratio]{StuStaNet_Logo}\ifthenelse{\boolean{frakfamily}}{\frakfamily}{}\Huge \sffamily \textbf{e.V.}}
+   \vspace{-40pt}
+\end{figure}
+
+
+\section*{\fbox{\parbox{\linewidth}{\textbf{This is just a help for understanding the german application form and may not be a fully accurate translation.
+By applying you agree to the german terms and conditions! You have to fill out a german form to apply!}}}}
+
+\subsection*{I apply for admittance as a member of the club \enquote{StuStaNet e.V.}}
+\ifthenelse{\boolean{frakfamily}}{\yinipar{T}}{T}he club maintains network services in the local area network of the residential home \enquote{Studentenstadt Freimann} in Munich. I am, as a member, entitled to use these services together alongside other users. I commit myself to use the network and the services with responsibility and to avoid excessive use. With regard to the interest of all users and considering all currently accepted conditions of use, I ensure not to abuse the network and the services. I acknowledge that the club  does not in any way give an assurance to the viability of the network and the services, the extent of the offered functionality or its durability. In fact, it arises directly from the purpose of the club, that the network and the provided services are subject to continuous alterations.
+
+\subsection*{Acknowledgement of terms of use}
+\ifthenelse{\boolean{frakfamily}}{\yinipar{I}}{I} declare explicitely that I approve of the purpose of the network according to the part \enquote{Allgemeines} in the \enquote{Benutzerordnung für das Datennetzwerk der Wohnanlagen des Studentenwerks München} (\url{http://www.studentenwerk-muenchen.de/swh/benutzerordnung/benutzerordnung.pdf}). I also approve of the general terms of use according to §9 of the mentioned \enquote{Benutzerordnung}. Furthermore, I take note that the club has to respect the \enquote{Benutzungsrichtlinien für Informationsverarbeitungssysteme} of the \enquote{Leibnitz-Rechenzentrum der Bayerischen Akademie der Wissenschaften} (\url{http://www.lrz.de/wir/regelwerk/benutzungsrichtlinien/}) and any further terms of use of the \enquote{Leibnitz-Rechenzentrum der Bayerischen Akademie der Wissenschaften}.
+
+\subsection*{Limitation of liability}
+\ifthenelse{\boolean{frakfamily}}{\yinipar{D}}{I} limit the liablility of other
+club members for activites regarding my computer hardware and the computer network to intent and gross negligence. Alike, I generally limit the liablility of the club board of the StuStaNet~e.V to intent and gross negligence. When I do something for the club, I shall be only liable for intention and gross negligence. I am aware that the operation of devices in the network and the use of network services provided by the club is generally carried out at one's own risk. Furhtermore, one has to expect disruptions of the services provided by the club, because they are also intended for the use in experiments of other club members. In particular, the board is not liable for the loss of data stored on computers owned by the club.
+
+\subsection*{Data security, secure network operation and protection of minors}
+\ifthenelse{\boolean{frakfamily}}{\yinipar{M}}{I} am aware that there may be break-in attempts to the network and all connected devices. In consequence, there may also be data espionage and data loss at my connected devices. I am responsible myself for the data security on my computer. I am also aware that there may be disruption of the network avaiability, as well as data espionage and data loss at my connected hardware due to malicious software. I am responsible myself for the protection of my computer and furthermore bound to ensure that all my devices which are connected to the network do not threaten the security of the network or distribute malicious software. Furthermore, I will prevent minors from using the computer network and network services of the board at my appartment in an effective way. I am aware that there may be content harmful to minors at the local network and computers belonging to the club (intranet) as well as at the global network (internet). 
+ 
+
+\subsection*{Membership}
+\ifthenelse{\boolean{frakfamily}}{\yinipar{D}}{A}ccording to article 6 of the club statutes the membership begins with the issuance of a membership card. The handling of the application as well as the activation for all of the club services typically happens within a week but may take longer. I will handle my membership card, which contains my membership number and my passwords, as well as other passwords for network services provided by the club confidentially and in no case pass them to a third-party. My access to club services is a personalised access and I take the full responsibility for it's use. I accept the statutes of the StuStaNet~e.V. in it's valid version and the rights and duties arising from it.
+\enlargethispage{40pt}
+\medskip
+
+\hfill\today
+
+%\vfill
+\newpage
+
+\ifthenelse{\boolean{onlineform}}{\begin{Form}}{}
+
+\LARGE Please fill in a \textbf{german} application form in \textbf{block letters}!\\
+\large Incomplete or unreadable applications can't be handled!
+
+\vfill
+
+{\LARGE
+\begin{tabbing}
+	\hspace{7em}\=\kill
+	\bfseries Last name: \>\ifthenelse{\boolean{onlineform}}
+	{\underline{\TextField[name=name, bordercolor=white, width=.7\linewidth, borderwidth=0]{}}}
+	{\rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle} \\
+	\\
+	\bfseries First name: \>\ifthenelse{\boolean{onlineform}}
+	{\underline{\TextField[name=vorname, bordercolor=white, width=.7\linewidth, borderwidth=0]{}}}
+	{\rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle} \\
+	\\
+	\bfseries Room: \>\ifthenelse{\boolean{onlineform}}
+	{\underline {\TextField[name=zimmer, bordercolor=white, width=2.4em, maxlen=4, borderwidth=0]{}}}
+	{\rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace} \\
+\end{tabbing}
+}
+\vspace{-10pt}
+
+\vfill
+
+\LARGE \textbf{House:} \hspace*{10pt} \large{(please make a cross below at the right one)} \\
+\vspace{-10pt}
+
+{\large
+
+\begin{multicols}{2}
+
+\begin{tabbing}
+	\hspace*{3.5em}\=\hspace*{2.5em}\=\kill
+	\myRadioBox \> 1 \> Grasmeierstr. 25 (MKH) \\
+	\myRadioBox \> 2 \> Grasmeierstr. 15, 17, 19, 21 \\
+	\myRadioBox \> 3 \> Grasmeierstr. 7, 9, 11, 13 \\
+	\myRadioBox \> 4 \> Willi-Graf-Straße 17 (EWH) \\
+	\myRadioBox \> 5 \> Willi-Graf-Str. 9, 11, 13 \\
+	\myRadioBox \> 6 \> Willi-Graf-Str. 3, 5, 7 \\
+	\myRadioBox \> 7 \> Willi-Graf-Str. 21, 23, 25 \\
+	\myRadioBox \> 8 \> Willi-Graf-Str. 19 \\
+	\\
+	\myRadioBox \> 9 \> Christoph-Probst-Str. 16\\
+		\> \>(HSH) (green)\\
+	\myRadioBox \> 10 \> Hans-Leipelt-Straße 7 \\
+	\myRadioBox \> 11 \> Christoph-Probst-Str. 12 (blue) \\
+	\myRadioBox \> 12 \> Christoph-Probst-Str. 8 (orange) \\
+	\myRadioBox \> 13 \> Christoph-Probst-Str. 6 (red) \\
+	\myRadioBox \> 14 \> Hans-Leipelt-Straße 6, 8, 10 \\
+	\> \>\ifthenelse{\boolean{onlineform}}
+		{\textbf{WG:} \mbox{\underline{\TextField[name=wg, bordercolor=white, width=2em, maxlen=2, borderwidth=0]{ }}}}
+		{\textbf{WG:} \Large{\raisebox{-0.15em}{\rightangle \enspace \rightangle \enspace}}} \\
+	\myRadioBox \> 16 \> Grasmeierstr. 27 \\
+		\> \>(Wohnwürfel / O2 village) \\
+\end{tabbing}
+
+\end{multicols}
+
+}
+
+\vfill
+
+{\Large\textbf{E-Mail:}} \hspace*{10pt} \large{(please choose \textbf{exactly ONE} of the options by marking it with a cross)} \\
+The communication with the StuStaNet e. V. is mainly done via e-mail. Members are responsible on their own to regularly check their e-mail mailbox and to inform the club about changes to the e-mail address. For this purpose, the StuStaNet e. V. provides an own e-mail service.\\
+	\myRadioBoxMail I want to be informed about club matters regarding my membership via my \textbf{StuStaNet e-mail address}\\
+	\myRadioBoxMail I want to be informed about club matters regarding my membership via \textbf{the following e-mail address}:\\
+
+{\Large
+\ifthenelse{\boolean{onlineform}}
+	{\mbox{\underline{\TextField[name=email, bordercolor=white, width=.8\linewidth, borderwidth=0]{ }}}}
+	{{\raisebox{-0.15em}{\rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle}}} \\
+}
+
+\ifthenelse{\boolean{onlineform}}{\end{Form}}{}
+
+\vfill
+I confirm the correctness of my data above and that I have read and accepted the first page of the application form. 
+\vspace{3em}
+
+\hrulefill \\
+(Date) \hfill (Signature) \hspace{\stretch{4}}
+
+\vfill
+
+\enlargethispage{40pt}
+
+\hfill Version: \today
+
+\end{document}
