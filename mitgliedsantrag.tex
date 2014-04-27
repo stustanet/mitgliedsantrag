@@ -6,12 +6,14 @@
 
 \usepackage[utf8x]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage{ngerman}
+\usepackage[ngerman]{babel}
 \usepackage{eurosym}
 \usepackage[pdftex,final]{graphicx}
 \usepackage{xcolor}
 \usepackage{array}
-\usepackage{pifont}
+\let\xhrf\hrulefill
+\usepackage[mdput]{mathdesign}
+\let\hrulefill\xhrf
 \usepackage{fancyhdr}
 \usepackage{lastpage}
 \usepackage{pigpen}
@@ -57,10 +59,6 @@
 }{}
 
 
-\DeclareFontEncoding{MDB}{}{}
-\DeclareFontFamily{MDB}{mdput}{}
-\DeclareFontShape{MDB}{mdput}{m}{n}{<-> mdputrmb}{}
-\newcommand{\rightangle}{\usefont{MDB}{mdput}{m}{n}\char"4}
 \setlength{\parindent}{0pt}
 
 \pagestyle{fancy}
@@ -135,15 +133,15 @@
 	\hspace{7em}\=\kill
 	\bfseries Name: \>\ifthenelse{\boolean{onlineform}}
 	{\underline{\TextField[name=name, bordercolor=white, width=.7\linewidth, borderwidth=0]{}}}
-	{\rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle} \\
+	{\color{gray} $\rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle$} \\
 	\\
 	\bfseries Vorname: \>\ifthenelse{\boolean{onlineform}}
 	{\underline{\TextField[name=vorname, bordercolor=white, width=.7\linewidth, borderwidth=0]{}}}
-	{\rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle} \\
+	{\color{gray} $\rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle$} \\
 	\\
 	\bfseries Zimmer: \>\ifthenelse{\boolean{onlineform}}
 	{\underline {\TextField[name=zimmer, bordercolor=white, width=2.4em, maxlen=4, borderwidth=0]{}}}
-	{\rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace} \\
+	{\color{gray} $\rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle$} \\
 \end{tabbing}
 }
 \vspace{-10pt}
@@ -177,7 +175,7 @@
 	\myRadioBox \> 14 \> Hans-Leipelt-Straße 6, 8, 10 \\
 	\> \>\ifthenelse{\boolean{onlineform}}
 		{\textbf{WG:} \mbox{\underline{\TextField[name=wg, bordercolor=white, width=2em, maxlen=2, borderwidth=0]{ }}}}
-		{\textbf{WG:} \Large{\raisebox{-0.15em}{\rightangle \enspace \rightangle \enspace}}} \\
+		{\textbf{WG:} \Large{\raisebox{-0.15em}{\color{gray} $\rightangle \hspace{.7em} \rightangle$ \enspace}}} \\
 	\myRadioBox \> 16 \> Grasmeierstr. 27 \\
 		\> \>(Wohnwürfel / O2 village) \\
 \end{tabbing}
@@ -196,7 +194,7 @@ Die Kommunikation zwischen dem StuStaNet e. V. findet hauptsächlich per E-Mail 
 {\Large
 \ifthenelse{\boolean{onlineform}}
 	{\mbox{\underline{\TextField[name=email, bordercolor=white, width=.8\linewidth, borderwidth=0]{ }}}}
-	{{\raisebox{-0.15em}{\rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle \enspace \rightangle}}} \\
+	{{\raisebox{-0.15em}{\color{gray} $\rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle$}}} \\
 }
 
 \ifthenelse{\boolean{onlineform}}{\end{Form}}{}
