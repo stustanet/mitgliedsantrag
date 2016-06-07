@@ -86,7 +86,7 @@
 }{}
 
 \maketitle
-\vspace{-60pt}
+\vspace{-65pt}
 
 \begin{figure}[t!]
    \centering
@@ -116,18 +116,14 @@ Incomplete or unreadable applications can't be handled!
 
 \vfill
 
-{\LARGE
+{\Large
 \begin{tabbing}
-	\hspace{7.5em}\=\kill
-        \bfseries {\large Name/last name:} \>\ifthenelse{\boolean{onlineform}}
-	{\underline{\TextField[name=name, bordercolor=white, width=.7\linewidth, borderwidth=0]{}}}
-	{\color{gray} $\rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle$} \\
-        \\
-        \bfseries {\large Vorname/first name:} \>\ifthenelse{\boolean{onlineform}}
-	{\underline{\TextField[name=vorname, bordercolor=white, width=.7\linewidth, borderwidth=0]{}}}
-	{\color{gray} $\rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle$} \\
-	\\
-        \bfseries {\large Zimmer/Room:} \>\ifthenelse{\boolean{onlineform}}
+	\hspace{11em}\=\kill
+	\bfseries Name/last name: \> \rule{12cm}{0.4pt}
+	\\[1.3em]
+	\bfseries Vorname/first name: \> \rule{12cm}{0.4pt} 
+	\\[1.3em]
+        \bfseries Zimmer/Room: \>\ifthenelse{\boolean{onlineform}}
 	{\underline {\TextField[name=zimmer, bordercolor=white, width=2.4em, maxlen=4, borderwidth=0]{}}}
 	{\color{gray} $\rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle$} \\
 \end{tabbing}
@@ -153,10 +149,9 @@ Incomplete or unreadable applications can't be handled!
 	\myRadioBox \> 6 \> Willi-Graf-Str. 3, 5, 7 \\
 	\myRadioBox \> 7 \> Willi-Graf-Str. 21, 23, 25 \\
 	\myRadioBox \> 8 \> Willi-Graf-Str. 19 \\
-	\\
-	\\
 	\myRadioBox \> 9 \> Christoph-Probst-Str. 16\\
 		\> \>(HSH) (grün/green)\\
+		\\
 	\myRadioBox \> 10 \> Hans-Leipelt-Straße 7 \\
 	\myRadioBox \> 11 \> Christoph-Probst-Str. 12 (blau/blue) \\
 	\myRadioBox \> 12 \> Christoph-Probst-Str. 8 (orange) \\
@@ -164,9 +159,10 @@ Incomplete or unreadable applications can't be handled!
 	\myRadioBox \> 14 \> Hans-Leipelt-Straße 6, 8, 10 \\
 	\> \>\ifthenelse{\boolean{onlineform}}
 		{\textbf{WG:} \mbox{\underline{\TextField[name=wg, bordercolor=white, width=2em, maxlen=2, borderwidth=0]{ }}}}
-		{\textbf{WG:} \Large{\raisebox{-0.15em}{\color{gray} $\rightangle \hspace{.7em} \rightangle$ \enspace}}} \\
+		{\textbf{WG:} \Large{\hspace{.1em} \raisebox{-0.15em}{\color{gray} $\rightangle \hspace{.5em} \rightangle$ \enspace}}} \\
 	\myRadioBox \> 16 \> Grasmeierstr. 27 \\
 		\> \>(Wohnwürfel / O2 village) \\
+	\myRadioBox \> 17 \> Max-Bill-Str. 67 \\
 \end{tabbing}
 
 \end{multicols}
@@ -181,9 +177,7 @@ Incomplete or unreadable applications can't be handled!
 %	\myRadioBoxMail Ich möchte über \textbf{folgende E-Mail-Adresse} über Vereinsangelegenheiten und Angelegenheiten bezüglich meiner Mitgliedschaft informiert werden:\\
 %\begin{tabbing}
 {\Large
-	\bfseries E-Mail: \hspace{.5em} \ifthenelse{\boolean{onlineform}}
-	{\mbox{\underline{\TextField[name=email, bordercolor=white, width=.8\linewidth, borderwidth=0]{ }}}}
-	{{\raisebox{-0.15em}{\color{gray} $\rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle \hspace{.7em} \rightangle$}}} \\
+    \bfseries E-Mail: \hspace{.5em} \rule{15cm}{0.4pt} 
 }
 %\end{tabbing}
 \ifthenelse{\boolean{onlineform}}{\end{Form}}{}
