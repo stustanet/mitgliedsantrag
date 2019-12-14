@@ -121,7 +121,7 @@ Incomplete or unreadable applications can't be handled!
 	\hspace{11em}\=\kill
 	\bfseries Name/last name: \> \rule{12cm}{0.4pt}
 	\\[1.3em]
-	\bfseries Vorname/first name: \> \rule{12cm}{0.4pt} 
+	\bfseries Vorname/first name: \> \rule{12cm}{0.4pt}
 	\\[1.3em]
         \bfseries Zimmer/Room: \>\ifthenelse{\boolean{onlineform}}
 	{\underline {\TextField[name=zimmer, bordercolor=white, width=2.4em, maxlen=4, borderwidth=0]{}}}
@@ -147,6 +147,7 @@ Incomplete or unreadable applications can't be handled!
 	\myRadioBox \> 4 \> Willi-Graf-Str. 17 (EWH) \\
 	\myRadioBox \> 5 \> Willi-Graf-Str. 9, 11, 13 \\
 	\myRadioBox \> 6 \> Willi-Graf-Str. 3, 5, 7 \\
+	\> \> {\Large$\square$} 6A \hspace{0.25em} {\Large$\square$} 6B \hspace{0.25em} {\Large$\square$} 6C \\
 	\myRadioBox \> 7 \> Willi-Graf-Str. 21, 23, 25 \\
 	\myRadioBox \> 8 \> Willi-Graf-Str. 19 \\
 	\myRadioBox \> 9 \> Christoph-Probst-Str. 16\\
@@ -180,7 +181,7 @@ Incomplete or unreadable applications can't be handled!
 %	\myRadioBoxMail Ich möchte über \textbf{folgende E-Mail-Adresse} über Vereinsangelegenheiten und Angelegenheiten bezüglich meiner Mitgliedschaft informiert werden:\\
 %\begin{tabbing}
 {\Large
-    \bfseries E-Mail: \hspace{.5em} \rule{15cm}{0.4pt} 
+    \bfseries E-Mail: \hspace{.5em} \rule{15cm}{0.4pt}
 }
 %\end{tabbing}
 \ifthenelse{\boolean{onlineform}}{\end{Form}}{}
